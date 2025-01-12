@@ -1,0 +1,174 @@
+
+ELF-loader started on CPU: ARM Ltd. Cortex-A53 r0p4
+  paddr=[40a7b000..4120d0bf]
+No DTB passed in from boot loader.
+Looking for DTB in CPIO archive...found at 40e6afd8.
+Loaded DTB from 40e6afd8.
+   paddr=[40282000..40283fff]
+ELF-loading image 'kernel' to 40000000
+  paddr=[40000000..40281fff]
+  vaddr=[ffffff8040000000..ffffff8040281fff]
+  virt_entry=ffffff8040000000
+ELF-loading image 'sel4test-driver' to 40284000
+  paddr=[40284000..4068afff]
+  vaddr=[400000..806fff]
+  virt_entry=40e7b8
+Enabling MMU and paging
+Jumping to kernel-image entry point...
+
+Booting all finished, dropped to user space
+
+
+Node 0 of 1
+IOPT levels:     0
+IPC buffer:      0x807000
+Empty slots:     [1155 --> 8192)
+sharedFrames:    [0 --> 0)
+userImageFrames: [23 --> 1054)
+userImagePaging: [16 --> 21)
+untypeds:        [1054 --> 1155)
+Initial thread domain: 0
+Initial thread cnode size: 13
+List of untypeds
+------------------
+Paddr    | Size   | Device
+0 | 30 | 1
+0x80000000 | 31 | 1
+0x100000000 | 32 | 1
+0x200000000 | 33 | 1
+0x400000000 | 34 | 1
+0x800000000 | 35 | 1
+0x1000000000 | 36 | 1
+0x2000000000 | 37 | 1
+0x4000000000 | 38 | 1
+0x8000000000 | 38 | 1
+0xc000000000 | 38 | 1
+0x10000000000 | 38 | 1
+0x14000000000 | 38 | 1
+0x18000000000 | 38 | 1
+0x1c000000000 | 38 | 1
+0x20000000000 | 38 | 1
+0x24000000000 | 38 | 1
+0x28000000000 | 38 | 1
+0x2c000000000 | 38 | 1
+0x30000000000 | 38 | 1
+0x34000000000 | 38 | 1
+0x38000000000 | 38 | 1
+0x3c000000000 | 38 | 1
+0x40000000000 | 38 | 1
+0x44000000000 | 38 | 1
+0x48000000000 | 38 | 1
+0x4c000000000 | 38 | 1
+0x50000000000 | 38 | 1
+0x54000000000 | 38 | 1
+0x58000000000 | 38 | 1
+0x5c000000000 | 38 | 1
+0x60000000000 | 38 | 1
+0x64000000000 | 38 | 1
+0x68000000000 | 38 | 1
+0x6c000000000 | 38 | 1
+0x70000000000 | 38 | 1
+0x74000000000 | 38 | 1
+0x78000000000 | 38 | 1
+0x7c000000000 | 38 | 1
+0x80000000000 | 38 | 1
+0x84000000000 | 38 | 1
+0x88000000000 | 38 | 1
+0x8c000000000 | 38 | 1
+0x90000000000 | 38 | 1
+0x94000000000 | 38 | 1
+0x98000000000 | 38 | 1
+0x9c000000000 | 38 | 1
+0xa0000000000 | 38 | 1
+0xa4000000000 | 38 | 1
+0xa8000000000 | 38 | 1
+0xac000000000 | 38 | 1
+0xb0000000000 | 38 | 1
+0xb4000000000 | 38 | 1
+0xb8000000000 | 38 | 1
+0xbc000000000 | 38 | 1
+0xc0000000000 | 38 | 1
+0xc4000000000 | 38 | 1
+0xc8000000000 | 38 | 1
+0xcc000000000 | 38 | 1
+0xd0000000000 | 38 | 1
+0xd4000000000 | 38 | 1
+0xd8000000000 | 38 | 1
+0xdc000000000 | 38 | 1
+0xe0000000000 | 38 | 1
+0xe4000000000 | 38 | 1
+0xe8000000000 | 38 | 1
+0xec000000000 | 38 | 1
+0xf0000000000 | 38 | 1
+0xf4000000000 | 38 | 1
+0xf8000000000 | 38 | 1
+0xfc000000000 | 38 | 1
+0x40000000 | 16 | 0
+0x40283dd0 | 4 | 0
+0x40283de0 | 5 | 0
+0x40283e00 | 9 | 0
+0x4068b000 | 12 | 0
+0x4068c000 | 14 | 0
+0x40690000 | 16 | 0
+0x406a0000 | 17 | 0
+0x406c0000 | 18 | 0
+0x40700000 | 20 | 0
+0x40800000 | 23 | 0
+0x41000000 | 24 | 0
+0x42000000 | 25 | 0
+0x44000000 | 26 | 0
+0x48000000 | 27 | 0
+0x50000000 | 28 | 0
+0x60000000 | 28 | 0
+0x70000000 | 27 | 0
+0x78000000 | 26 | 0
+0x7c000000 | 25 | 0
+0x7e000000 | 24 | 0
+0x7f000000 | 23 | 0
+0x7f800000 | 22 | 0
+0x7fc00000 | 21 | 0
+0x7fe00000 | 20 | 0
+0x7ff00000 | 19 | 0
+0x7ffcb800 | 11 | 0
+0x7ffcc000 | 14 | 0
+0x7ffd0000 | 16 | 0
+0x7ffe0000 | 17 | 0
+Untyped summary
+1 untypeds of size 4
+1 untypeds of size 5
+1 untypeds of size 9
+1 untypeds of size 11
+1 untypeds of size 12
+2 untypeds of size 14
+3 untypeds of size 16
+2 untypeds of size 17
+1 untypeds of size 18
+1 untypeds of size 19
+2 untypeds of size 20
+1 untypeds of size 21
+1 untypeds of size 22
+2 untypeds of size 23
+2 untypeds of size 24
+2 untypeds of size 25
+2 untypeds of size 26
+2 untypeds of size 27
+2 untypeds of size 28
+1 untypeds of size 30
+1 untypeds of size 31
+1 untypeds of size 32
+1 untypeds of size 33
+1 untypeds of size 34
+1 untypeds of size 35
+1 untypeds of size 36
+1 untypeds of size 37
+63 untypeds of size 38
+Switching to a safer, bigger stack... 
+seL4 Test
+=========
+
+
+
+KERNEL DATA ABORT!
+Faulting instruction: 0xffffff80400139e8
+FAR: 0xffffff803fffff00 ESR (DFSR): 0x96000050
+c]104[!p[?3;4l[4l>

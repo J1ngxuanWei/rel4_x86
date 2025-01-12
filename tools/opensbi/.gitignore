@@ -1,0 +1,15 @@
+# Object files
+*.o
+*.a
+*.dep
+
+#Build & install directories
+build/
+install/
+
+# Development friendly files
+tags
+
+# compile_commands.json
+*.json
+.clangd/
