@@ -157,3 +157,127 @@ pub struct syscall_error_t {
 pub struct extra_caps_t {
     pub excaprefs: [pptr_t; seL4_MsgMaxExtraCaps],
 }
+
+
+#[repr(C, packed)] // 保证与C语言结构体布局一致
+pub struct seL4_VBEInfoBlock {
+    pub signature: [u8; 4],           // 签名，4个字节
+    pub version: u16,                 // 版本号
+    pub oem_string_ptr: u32,          // OEM字符串指针
+    pub capabilities: u32,            // 功能
+    pub mode_list_ptr: u32,           // 模式列表指针
+    pub total_memory: u16,            // 总内存
+    pub oem_software_rev: u16,        // OEM软件版本
+    pub oem_vendor_name_ptr: u32,     // OEM供应商名称指针
+    pub oem_product_name_ptr: u32,    // OEM产品名称指针
+    pub oem_product_rev_ptr: u32,     // OEM产品版本指针
+    pub reserved: [u8; 222],          // 保留字段，222个字节
+    pub oem_data: [u8; 256],          // OEM数据，256个字节
+}
+
+#[repr(C, packed)] // 保证与C语言结构体布局一致
+pub struct seL4_VBEModeInfoCommon {
+    pub mode_attr: u16,
+    pub win_a_attr: u8,
+    pub win_b_attr: u8,
+    pub win_granularity: u16,
+    pub win_size: u16,
+    pub win_a_seg: u16,
+    pub win_b_seg: u16,
+    pub win_func_ptr: u32,
+    pub bytes_per_scan_line: u16,
+}
+
+#[repr(C, packed)] // 保证与C语言结构体布局一致
+pub struct seL4_VBEInfo12Part1 {
+    pub x_res: u16,
+    pub y_res: u16,
+    pub x_char_size: u8,
+    pub y_char_size: u8,
+    pub planes: u8,
+    pub bits_per_pixel: u8,
+    pub banks: u8,
+    pub memory_model: u8,
+    pub bank_size: u8,
+    pub image_pages: u8,
+    pub reserved1: u8,
+}
+
+#[repr(C, packed)] // 保证与C语言结构体布局一致
+pub struct seL4_VBEInfo12Part2 {
+    pub red_len: u8,
+    pub red_off: u8,
+    pub green_len: u8,
+    pub green_off: u8,
+    pub blue_len: u8,
+    pub blue_off: u8,
+    pub rsvd_len: u8,
+    pub rsvd_off: u8,
+    pub direct_color_info: u8, // 直接颜色模式属性
+}
+
+#[repr(C, packed)] // 保证与C语言结构体布局一致
+pub struct seL4_VBEInfo20 {
+    pub phys_base_ptr: u32,
+    pub reserved2: [u8; 6],
+}
+
+#[repr(C, packed)] // 保证与C语言结构体布局一致
+pub struct seL4_VBEInfo30 {
+    pub lin_bytes_per_scan_line: u16,
+    pub bnk_image_pages: u8,
+    pub lin_image_pages: u8,
+    pub lin_red_len: u8,
+    pub lin_red_off: u8,
+    pub lin_green_len: u8,
+    pub lin_green_off: u8,
+    pub lin_blue_len: u8,
+    pub lin_blue_off: u8,
+    pub lin_rsvd_len: u8,
+    pub lin_rsvd_off: u8,
+    pub max_pixel_clock: u32,
+    pub mode_id: u16,
+    pub depth: u8,
+}
+
+#[repr(C, packed)] // 保证与C语言结构体布局一致
+pub struct SeL4VBEModeInfoBlock {
+    // 所有VBE版本
+    pub vbe_common: seL4_VBEModeInfoCommon,
+    // VBE 1.2+
+    pub vbe12_part1: seL4_VBEInfo12Part1,
+    pub vbe12_part2: seL4_VBEInfo12Part2,
+    // VBE 2.0+
+    pub vbe20: seL4_VBEInfo20,
+    // VBE 3.0+
+    pub vbe30: seL4_VBEInfo30,
+    pub reserved3: [u8; 187],
+}
+
+// _seL4_X86_BootInfo_VBE 结构体
+#[repr(C, packed)] // 保证与C语言结构体布局一致
+pub struct SeL4X86BootInfoVBE {
+    pub header: seL4_BootInfoHeader,        // 引导信息头
+    pub vbe_info_block: seL4_VBEInfoBlock,  // VBE信息块
+    pub vbe_mode_info_block: SeL4VBEModeInfoBlock, // VBE模式信息块
+    pub vbeMode: u32,                     // VBE模式
+    pub vbe_interface_seg: u32,            // VBE接口段
+    pub vbe_interface_off: u32,            // VBE接口偏移量
+    pub vbe_interface_len: u32,            // VBE接口长度
+}
+
+#[repr(C, packed)]
+#[derive(Copy, Clone)]
+pub struct seL4_X86_mb_mmap {
+    pub size: u32,        // 该结构体的大小（字节）
+    pub base_addr: u64,   // 该内存区域的起始物理地址
+    pub length: u64,      // 该内存区域的长度（字节）
+    pub type_: u32,       // 该内存区域的类型，类型1表示RAM
+}
+
+#[repr(C, packed)]
+pub struct seL4_X86_BootInfo_mmap {
+    pub header: seL4_BootInfoHeader, // 引导信息头
+    pub mmap_length: u32,           // mmap数组的长度
+    pub mmap: [seL4_X86_mb_mmap; 50], // 多重引导内存映射条目
+}
